@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 public class PostController {
-
+//  create a new array list
     List<Post> posts = new ArrayList<>();
 
     public PostController(){
@@ -21,9 +21,10 @@ public class PostController {
 
     @GetMapping("/posts")
     public String posts(Model model) {
-
+//      add two post objects to the array list
         posts.add(new Post("Post Title", "Post Body"));
         posts.add(new Post("Post Title 2", "Post Body 2"));
+//      pass the list to view
         model.addAttribute("posts", posts);
         return "posts/index";
 
@@ -32,8 +33,8 @@ public class PostController {
 
     @GetMapping("/posts/{id}")
     public String individualPost(@PathVariable int id, Model model) {
+//        create a new post object and pass to view
         model.addAttribute("post", posts.get(id-1));
-
         return "posts/show";
     }
 
