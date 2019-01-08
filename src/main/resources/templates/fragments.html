@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">My Sports Teams</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: aquamarine;
+        }
+    </style>
+
+    <!--STYLE-->
+    <!--<link rel="stylesheet" th:href="@{/css/styles.css}" />-->
+    <!--JAVASCRIPT-->
+    <!--<script type="text/javascript" th:src="@{/js/script.js}"></script>-->
+</head>
+<body>
+<br />
+
+<!--nav fragment-->
+<nav th:fragment="navbar">
+    <a href="/sports">List</a>
+    <a href="/sports/add">Add</a>
+
+</nav>
+</body>
+</html>

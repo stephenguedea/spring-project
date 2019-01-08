@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+    <h1 th:text="${title}">Default Title</h1>
+
+    <!--Adding navbar-->
+    <nav th:replace="fragments :: navbar"></nav>
+
+    <!--Add a form to add a team-->
+    <form method="post">
+        <input type="text" name="teamName" />
+        <input type="submit" value="Add Team" />
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<h1 th:text="${myTitle}">Default Title</h1>
+
+<!--Adding the navbar-->
+<nav th:replace="fragments :: navbar"></nav>
+
+
+    <p th:unless="${teams} and ${teams.size()}">No Teams!</p>
+
+    <!--<a href="/sports/add">Add a team</a>-->
+
+    <!--display the array list-->
+    <ul>
+        <li th:each="sports : ${teams}" th:text="${sports}"></li>
+    </ul>
+
+</body>
+</html>
