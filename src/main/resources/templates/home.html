@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <style>
+        * {
+            background-color: tomato;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>This is the home page</h1>
+
+<h3>Lucky number is: <span th:text="${number}"></span></h3>
+
+<div th:if="${number > 50}">
+    The random number is greater than 50!
+</div>
+
+<hr />
+
+<h2>Everything is awesome!</h2>
+<br />
+
+<h2>Here are some inspiring quote:</h2>
+<div class="quote" th:each="quote : ${quotes}">
+    <h3 th:text="${quote.quote}" />
+    <p th:text="${quote.author}" />
+</div>
+
+<script th:replace="partials :: scripts" />
+
+</body>
+</html>

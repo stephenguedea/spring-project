@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+    
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<!--<nav th:replace="partials :: header" />-->
+<!--<nav th:replace="partials :: navbar" />-->
+<h1>Individual post page!</h1>
+
+<h2 th:text="${post.title}"></h2>
+<p th:text="${post.body}"></p>
+
+<nav th:replace="partials :: scripts" />
+
+
+</body>
+</html>
