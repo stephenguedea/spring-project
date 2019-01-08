@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials :: head">
+<head th:replace="fragments :: head">
     
     <meta charset="UTF-8" />
     <title>Title</title>
 </head>
 <body>
 <!--<nav th:replace="partials :: header" />-->
-<!--<nav th:replace="partials :: navbar" />-->
+<nav th:replace="fragments :: navbar" />
 <h1>Individual post page!</h1>
 
 <h2 th:text="${post.title}"></h2>
