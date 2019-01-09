@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: head"></head>
+<head th:replace="partials :: head('Add a Team')">
+    <title th:text="${title}">My Sports Teams</title>
+</head>
 <body>
+<!--ADDING NAVBAR-->
+<div th:replace="partials :: navbar"></div>
+<main role="main" class="container">
+
     <h1 th:text="${title}">Default Title</h1>
 
-    <!--Adding navbar-->
-    <nav th:replace="fragments :: navbar"></nav>
+    <!--Adding header-->
+    <div th:replace="fragments :: header"></div>
 
     <!--Add a form to add a team-->
     <form method="post">
         <input type="text" name="teamName" />
         <input type="submit" value="Add Team" />
     </form>
+</main>
+<div th:replace="partials :: scripts"></div>
 
 </body>
 </html>

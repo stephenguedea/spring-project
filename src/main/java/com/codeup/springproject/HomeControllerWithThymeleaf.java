@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class HomeControllerWithThymeleaf {
 
-    @GetMapping("/home") // the piece of URL we're listening for
+    @GetMapping("/") // the piece of URL we're listening for
     public String welcome(){
         return "home";
     }

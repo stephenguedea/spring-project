@@ -3,6 +3,7 @@
 <head th:fragment="head">
     <meta charset="UTF-8"/>
     <title th:text="${title}">My Sports Teams</title>
+
     <style>
         body {
             font-family: sans-serif;
@@ -19,10 +20,10 @@
 <br />
 
 <!--nav fragment-->
-<nav th:fragment="navbar">
+<div th:fragment="header">
     <a href="/sports">List</a>
     <a href="/sports/add">Add</a>
 
-</nav>
+</div>
 </body>
 </html>

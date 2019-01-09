@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Home</title>
-    <style>
-        * {
-            background-color: tomato;
-            color: white;
-        }
-
-    </style>
+<head th:replace="partials :: head('Home')">
 </head>
 <body>
+<nav th:replace="partials :: navbar" />
 
-<h1>This is the home page</h1>
+<main role="main" class="container">
+<h1>Hello!</h1>
+<h3>Welcome to my home page</h3>
 
-<h3>Lucky number is: <span th:text="${number}"></span></h3>
+<!--<h3>Lucky number is: <span th:text="${number}"></span></h3>-->
 
-<div th:if="${number > 50}">
-    The random number is greater than 50!
-</div>
+<!--<div th:if="${number > 50}">-->
+    <!--The random number is greater than 50!-->
+<!--</div>-->
 
-<hr />
-
-<h2>Everything is awesome!</h2>
 <br />
 
-<h2>Here are some inspiring quote:</h2>
-<div class="quote" th:each="quote : ${quotes}">
-    <h3 th:text="${quote.quote}" />
-    <p th:text="${quote.author}" />
-</div>
+<!--<h2>Everything is awesome!</h2>-->
+<br />
 
-<script th:replace="partials :: scripts" />
+<!--<h2>Here are some inspiring quote:</h2>-->
+<!--<div class="quote" th:each="quote : ${quotes}">-->
+    <!--<h3 th:text="${quote.quote}" />-->
+    <!--<p th:text="${quote.author}" />-->
+<!--</div>-->
+
+</main>
+<div th:replace="partials :: scripts"></div>
 
 </body>
 </html>

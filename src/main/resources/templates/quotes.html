@@ -6,7 +6,7 @@
 <nav th:replace="partials :: navbar" />
 
 <main role="main" class="container">
-    <h1>Hello! This is Stephen</h1>
+    <!--<h1>Hello! This is Stephen</h1>-->
     <!--<h1>This is my home page</h1>-->
 
     <!--<h3>Lucky number is: <span th:text="${number}"></span></h3>-->
@@ -15,17 +15,25 @@
     <!--The random number is greater than 50!-->
     <!--</div>-->
 
-    <br />
+
 
     <!--<h2>Everything is awesome!</h2>-->
     <br />
 
-    <!--<h2>Here are some inspiring quote:</h2>-->
+    <h1>Here are some inspiring quote:</h1>
+    <br />
     <!--<div class="quote" th:each="quote : ${quotes}">-->
         <!--<h3 th:text="${quote.quote}" />-->
         <!--<p th:text="${quote.author}" />-->
     <!--</div>-->
-
+    <ul class="p-3 mb-2 bg-primary text-dark">
+        <li th:each="quote : ${quotes}" class="card">
+            <div class="card-body">
+                <h5 class="card-title"><span th:text="${quote.quote}"></span></h5>
+                <p class="card-text"><span th:text="${quote.author}"></span></p>
+            </div>
+        </li>
+    </ul>
 </main>
 <div th:replace="partials :: scripts"></div>
 

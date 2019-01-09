@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: head"></head>
+<head th:replace="partials :: head('Sports')">
+</head>
 <body>
+<!--Adding the navbar-->
+<div th:replace="partials :: navbar"></div>
+<main role="main" class="container">
+<br />
 
 <h1 th:text="${myTitle}">Default Title</h1>
-
-<!--Adding the navbar-->
-<nav th:replace="fragments :: navbar"></nav>
-
-
     <p th:unless="${teams} and ${teams.size()}">No Teams!</p>
 
-    <!--<a href="/sports/add">Add a team</a>-->
+    <a href="/sports/add">Add a team</a>
+    <a href="/sports">List</a>
 
     <!--display the array list-->
-    <ul>
-        <li th:each="sports : ${teams}" th:text="${sports}"></li>
+    <ul class="p-3 mb-2 bg-primary text-dark">
+        <li class="card" th:each="sports : ${teams}" >
+            <div class="card-body">
+                <h5 class="card-title" th:text="${sports}"></h5>
+            </div>
+        </li>
     </ul>
-
+</main>
+<div th:replace="partials :: scripts"></div>
 </body>
 </html>

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: head">
-    
-    <meta charset="UTF-8" />
-    <title>Title</title>
+<head th:replace="partials :: head('Show Movie Quotes')">
 </head>
 <body>
-<!--<nav th:replace="partials :: header" />-->
-<nav th:replace="fragments :: navbar" />
-<h1>Individual post page!</h1>
+<nav th:replace="partials :: header" />
+<nav th:replace="partials :: navbar" />
+<main role="main" class="container">
+    <br />
+<h2>Individual post page!</h2>
 
-<h2 th:text="${post.title}"></h2>
-<p th:text="${post.body}"></p>
-
+<!--<h2 th:text="${post.title}"></h2>-->
+<!--<p th:text="${post.body}"></p>-->
+    <div class="border border-primary">
+        <div class="card-body">
+            <h5 class="card-title"><span th:text="${post.title}"></span></h5>
+            <p class="card-text"><span th:text="${post.body}"></span></p>
+        </div>
+    </div>
 <nav th:replace="partials :: scripts" />
 
-
+</main>
+<div th:replace="partials :: scripts"></div>
 </body>
 </html>
