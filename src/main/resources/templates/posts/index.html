@@ -9,8 +9,11 @@
 <!--<div th:replace="partials :: header"></div>-->
 <br />
 <h2>All my Favorite Movie Quotes!</h2>
+    <a href="/posts/create">Add a post</a>
+    <a href="/posts">Post</a>
 
-<ul class="p-3 mb-2 bg-primary text-dark">
+
+    <ul class="p-3 mb-2 bg-primary text-dark">
     <li th:each="post : ${posts}" class="card">
         <div class="card-body">
             <h5 class="card-title"><a th:href="'posts/' + ${post.id}"><span th:text="${post.title}"></span></a></h5>

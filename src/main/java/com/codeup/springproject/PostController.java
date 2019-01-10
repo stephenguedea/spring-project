@@ -2,10 +2,7 @@ package com.codeup.springproject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,11 +31,7 @@ public class PostController {
 //        posts.add(new Post("Post Title 2", "Post Body 2"));
 //      pass the list to view
 //        model.addAttribute("posts", posts);
-
         model.addAttribute("posts", postService.findAll());
-
-
-
         return "posts/index";
 
     }
@@ -47,24 +40,48 @@ public class PostController {
     @GetMapping("/posts/{id}")
     public String individualPost(@PathVariable int id, Model model) {
 //        create a new post object and pass to view
-        Post post = postService.findOne(id);
-        model.addAttribute("post", post);
-
-
+        model.addAttribute("post", postService.findOne(id));
+        model.addAttribute("id", id);
         return "posts/show";
     }
 
-    @ResponseBody
+    // view the form
     @GetMapping("/posts/create")
-    public String create() {
-
-        return "viewing the form for creating a post";
+    public String displayCreateForm(Model model) {
+        model.addAttribute("post", new Post());
+        return "posts/create";
     }
 
-    @ResponseBody
+    // saving the new post
     @PostMapping("/posts/create")
-    public String save() {
+    public String save(Post post){
+        postService.savePost(post);
+        return "redirect:/posts";
 
-        return "saving after a new post created";
+        //            @RequestParam(name = "title") String title,
+//            @RequestParam(name = "body") String body
+//    ) {
+//        Post post = new Post();
+//        post.setTitle(title);
+//        post.setBody(body);
+//        // save the post
+//        return "saving after a new post created";
     }
+
+    @GetMapping("/posts/{id}/edit")
+    public String editPostForm(@PathVariable int id, Model model) {
+        model.addAttribute("post", postService.findOne(id));
+        return "posts/edit";
+    }
+
+    // method for editing a post
+    @PostMapping("/posts/{id}/edit")
+    public String editPost(@ModelAttribute Post post)
+        {
+            postService.edit(post);
+
+            return "redirect:/posts/" + post.getId();
+        }
+
+
 }
