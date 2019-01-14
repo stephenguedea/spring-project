@@ -9,6 +9,7 @@
 <!--<div th:replace="partials :: header"></div>-->
 <br />
 <h2>All my Favorite Movie Quotes!</h2>
+    <p th:unless="${posts} and ${posts.size()}">No Teams!</p>
     <a href="/posts/create">Add a post</a>
     <a href="/posts">Post</a>
 

@@ -15,11 +15,16 @@
         <div class="card-body">
             <h5 class="card-title"><span th:text="${post.title}"></span></h5>
             <p class="card-text"><span th:text="${post.body}"></span></p>
+            <a th:href="'/posts/' + ${post.id} + '/edit'">Edit</a>
+            <a href="/posts">Back</a>
+            <button id="rm-post" class="btn btn-danger">Delete</button>
+
         </div>
     </div>
 <nav th:replace="partials :: scripts" />
 
 </main>
 <div th:replace="partials :: scripts"></div>
+
 </body>
 </html>

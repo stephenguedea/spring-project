@@ -21,6 +21,7 @@
 
     <!-- refactoring the form to use FORM MODEL BINDING -->
     <form th:action="'/posts/' + ${post.id} + '/edit'" method="post" th:object="${post}">
+
         Title:
         <input th:field="*{title}" />
         <br />
@@ -28,6 +29,10 @@
         <input th:field="*{body}" />
         <br />
         <input type="submit" />
+        <input type="hidden" id="postId" th:value="${post.id}" />
+
+        <input type="button" onclick="history.back();" value="Back" />
+
     </form>
 </main>
 <div th:replace="partials :: scripts"></div>

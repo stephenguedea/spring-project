@@ -38,7 +38,7 @@ public class PostController {
 
 
     @GetMapping("/posts/{id}")
-    public String individualPost(@PathVariable int id, Model model) {
+    public String individualPost(@PathVariable long id, Model model) {
 //        create a new post object and pass to view
         model.addAttribute("post", postService.findOne(id));
         model.addAttribute("id", id);
@@ -69,7 +69,7 @@ public class PostController {
     }
 
     @GetMapping("/posts/{id}/edit")
-    public String editPostForm(@PathVariable int id, Model model) {
+    public String editPostForm(@PathVariable long id, Model model) {
         model.addAttribute("post", postService.findOne(id));
         return "posts/edit";
     }
@@ -78,10 +78,14 @@ public class PostController {
     @PostMapping("/posts/{id}/edit")
     public String editPost(@ModelAttribute Post post)
         {
-            postService.edit(post);
+            postService.savePost(post);
 
             return "redirect:/posts/" + post.getId();
         }
 
+    @PostMapping("/posts/{id}/delete")
+    public void removePost(@PathVariable long id) {
+        postService.delete(id);
+    }
 
 }
