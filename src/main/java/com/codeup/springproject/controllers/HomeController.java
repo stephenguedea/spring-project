@@ -1,4 +1,4 @@
-package com.codeup.springproject;
+package com.codeup.springproject.controllers;
 
 import com.codeup.springproject.quotes.Quote;
 import org.springframework.stereotype.Controller;
