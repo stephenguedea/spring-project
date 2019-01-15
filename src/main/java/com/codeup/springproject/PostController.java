@@ -13,14 +13,14 @@ public class PostController {
     List<Post> posts = new ArrayList<>();
     // injecting PostService to PostController
     private PostService postService;
+    // injecting UserRepository
+    private UserRepository userRepository;
 
-//    public PostController(){
-//        posts.add(new Post("First Post Title", "First post description"));
-//    }
 
     // NEW CONSTRUCTOR
-    public PostController(PostService postService){
+    public PostController(PostService postService, UserRepository userRepository){
         this.postService = postService;
+        this.userRepository = userRepository;
     }
 
 
@@ -32,6 +32,7 @@ public class PostController {
 //      pass the list to view
 //        model.addAttribute("posts", posts);
         model.addAttribute("posts", postService.findAll());
+        System.out.println("There are " + userRepository.count() + " users");
         return "posts/index";
 
     }
@@ -55,6 +56,8 @@ public class PostController {
     // saving the new post
     @PostMapping("/posts/create")
     public String save(Post post){
+        long randomUser = (long) Math.floor(Math.random() * userRepository.count() + 1);
+        post.setUser(userRepository.findOne(randomUser));
         postService.savePost(post);
         return "redirect:/posts";
 

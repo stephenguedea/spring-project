@@ -15,6 +15,9 @@
         <div class="card-body">
             <h5 class="card-title"><span th:text="${post.title}"></span></h5>
             <p class="card-text"><span th:text="${post.body}"></span></p>
+            <!--<p>Posted by: email goes here</p>-->
+
+            <p>Posted by: <span th:text="${post.user.email}"></span></p>
             <a th:href="'/posts/' + ${post.id} + '/edit'">Edit</a>
             <a href="/posts">Back</a>
             <button id="rm-post" class="btn btn-danger">Delete</button>
